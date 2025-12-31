@@ -1,0 +1,133 @@
+body{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.ny-container{
+    text-align: center;
+}
+
+
+.center-text, strong{
+    color: aqua;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgb(210, 36, 36);
+}
+
+
+.clock{
+    width: 350px;
+    height: 320px;
+    border:8px dotted #d4af37;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 20 #ffcc33, inset 0 0 20px #ffcc33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink{
+    0%{border:8px dotted #d4af37;
+     box-shadow: 0 0 20px #ffcc33, inset 0 0 20px #33f8ff;}
+    50%{border:7px dotted #c9e047;
+     box-shadow: 0 0 20px #33ffe4, inset 0 0 20px #ffcc33;}
+    100%{border:8px dotted #05f6e2;
+     box-shadow: 0 0 20px #ffcc33, inset 0 0 20px #ffcc33;}
+}
+
+.hand{
+    position: absolute;
+    width: 4px;
+    height: 120px;
+    background: linear-gradient(to top, transparent, #fff);
+    bottom: 50%;
+    transform-origin: bottom;
+    animation: rotateHand 10s linear infinite;
+}
+
+
+
+@keyframes rotateHand{
+    from{transform:rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+
+.year-balloons{
+    margin-top: .3rem;
+    font-size: 8rem;
+    display: flex;
+    gap: 10px;
+    position: relative;
+    z-index: 10;
+}
+
+span{
+    position: relative;
+
+    background: linear-gradient(to bottom, yellow, rgb(128, 77, 0));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(255,251, 0, 0.8));
+    color: yellow;
+    text-shadow: 2px 2px 0px rgb(255, 0, 81), 10px 5px 4px rgba(4, 241, 249, 0.5);
+    animation: float 3s ease-in-out infinite alternate;
+}
+
+@keyframes float{
+    from{transform: translateY(0);}
+    to{transform: translateY(-40px);}
+}
+
+canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.celebration-mode{
+    filter: drop-shadow(0 0 2px #352304);
+    transition: filter 0.5s ease infinite;
+}
+
+.celebration-mode{
+    animation: s 1s ease-in-out infinite;
+}
+
+@keyframes s{
+    0%{background-color: #090909;}
+    50%{background-color: #271d05;}
+    100%{background-color: #020202;}
+}
+
+.numeral{
+    position: absolute;
+    inset: 10px;
+    text-align: center;
+    color: aqua;
+    font-weight: bold;
+    transform: rotate(calc(var(--i)*30deg));
+    border: 2px dotted rgba(0, 255, 200,.3);
+    border-radius: 0;
+    animation: twinkle 1s alternate-reverse infinite;
+}
+
+@keyframes twinkle{
+    from{ border: 0px dotted rgba(0, 255, 200, .3);}
+    to{ border:  2px dotted rgba(0, 255, 200, .5);
+    inset:5px;
+ border-radius: 20rem 0em 20em 0em;}
+}
+
+
+
